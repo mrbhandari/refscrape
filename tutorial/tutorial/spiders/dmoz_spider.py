@@ -17,8 +17,8 @@ class DmozSpider(CrawlSpider):
         #Rule(SgmlLinkExtractor(allow=('category\.php', ), deny=('subsection\.php', ))),
 
         # Extract links matching 'item.php' and parse them with the spider's method parse_item
-        Rule(SgmlLinkExtractor(deny=('neimanmarcus\.com', ))),
-        Rule(SgmlLinkExtractor(allow=('\.com', )), callback='parse_item'),
+        #Rule(SgmlLinkExtractor(deny=('neimanmarcus\.com', ))),
+        Rule(SgmlLinkExtractor(allow=('\.com', ), deny=('neimanmarcus\.com', )), callback='parse_item'),
     )
     
     start_urls = text_file.read().split('\n')
